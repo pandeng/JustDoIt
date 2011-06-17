@@ -1,0 +1,21 @@
+<% title "New Activity" %>
+
+<%= form_for @activity do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </p>
+  <p>
+    <%= f.label :collaborator %><br />
+    <%= f.text_field :collaborator %>
+  </p>
+  <p>
+    <%= f.label :task %><br />
+    <%= f.text_field :task %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
+
+
+<p><%= link_to "Back to List", activities_path %></p>

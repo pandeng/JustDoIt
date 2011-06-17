@@ -1,0 +1,21 @@
+<% title "New Task" %>
+
+<%= form_for @task do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :assignee %><br />
+    <%= f.select :assignee_id, options_from_collection_for_select(User.all, :id, :name, @current_user.id)%>
+  </p>
+  <p>
+    <%= f.label :deadline %><br />
+    <%= f.datetime_select :deadline %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
+
+
+<p><%= link_to "Back to List", tasks_path %></p>

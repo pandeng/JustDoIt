@@ -1,0 +1,21 @@
+<% title "任务列表" %>
+
+<p><%= link_to "分配给我的", user_tasks_path(@current_user) %></p>
+<p><%= link_to "全部的", tasks_path %></p>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Assignee</th>
+    <th>Deadline</th>
+  </tr>
+  <% for task in @tasks %>
+    <tr>
+      <td><%= task.title %></td>
+      <td><%= task.assignee.try(:name) %></td>
+      <td><%= task.deadline.to_s(:db) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "创建任务", new_task_path %></p>
